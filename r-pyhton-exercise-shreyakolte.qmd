@@ -1,10 +1,17 @@
--   R version can be checked using the following command
+---
+title: "Introduction to R"
+author: "Shreya Kolte"
+format: html
+editor: visual
+---
+
+### R version can be checked using the following command
 
 ```{r}
 R.version
 ```
 
--   we can install any package using install.packages command:
+### we can install any package using install.packages command:
 
 ```{r}
 install.packages("DMwR2")
@@ -14,13 +21,13 @@ install.packages("DMwR2")
 help(package="DMwR2")
 ```
 
--   \(1\) when you need to use a specific function frequently, you would want to load it to the memory for your current session by using the library() function
+\(1\) when you need to use a specific function frequently, you would want to load it to the memory for your current session by using the **library() function**
 
 ```{r}
 library(DMwR2)
 ```
 
-Now you can use any function or dataset provided in `DMwR2` by referencing its name directly.
+Now you can use any function or dataset provided in **`DMwR2`** by referencing its name directly.
 
 ```{r}
 data(algae)
@@ -31,7 +38,7 @@ algae
 manyNAs(algae) 
 ```
 
-`library()` without arguments:
+### `library()` without arguments:
 
 ```{r}
 library()
@@ -72,7 +79,7 @@ old.packages()
 ```
 
 ```{r}
-update.packages(ask = FALSE)
+#update.packages(ask = FALSE)
 ```
 
 ```{r}
@@ -83,7 +90,7 @@ mean
 help(mean)
 ```
 
-When you want to see if a package you need to use has already been made, search for it using some keywords such as:
+**When you want to see if a package you need to use has already been made, search for it using some keywords such as:**
 
 ```{r}
 RSiteSearch('neural networks')
@@ -103,7 +110,7 @@ getwd()
 getwd()
 ```
 
-R OBJECTS AND VARIABLES:
+### R OBJECTS AND VARIABLES:
 
 To give a value to a variable:
 
@@ -117,7 +124,7 @@ To see what value the variable holds just type in the variable name:
 vat
 ```
 
-Use `()` to enclose a statement to have the returned values print directly:
+**Use `()` to enclose a statement to have the returned values print directly:**
 
 ```{r}
 (vat <- 0.2)
@@ -148,21 +155,21 @@ ls()
 objects()
 ```
 
-Remove a variable to free memory space:
+**Remove a variable to free memory space:**
 
 ```{r}
 rm(vat)
 ```
 
--   R FUNCTIONS:
+### R FUNCTIONS:
 
--To find the maximum value:
+-To find the **maximum value**:
 
 ```{r}
 max(4, 5, 6, 12, -4)
 ```
 
--To find the mean value:
+-To find the **mean value**:
 
 ```{r}
 mean(4, 5, 6, 12, -4)
@@ -198,7 +205,7 @@ rnorm(1)
 rnorm(1)
 ```
 
-To create a new function, se (standard error of means), first test if se exists in our current environment.
+**To create a new function, se (standard error of means), first test if se exists in our current environment.**
 
 ```{r}
 exists("se")
@@ -220,7 +227,7 @@ Object se has been created:
 exists("se")
 ```
 
--   convMeters will convert meters to inches, feet, yards, and miles exists ("convMeters")
+### convMeters will convert meters to inches, feet, yards, and miles exists ("convMeters")
 
 ```{r}
 convMeters <- function (x, to="inch"){
@@ -231,7 +238,7 @@ convMeters <- function (x, to="inch"){
 convMeters(23, "foot")
 ```
 
-If no argument to is provided, the default value is inch.
+If no argument is provided, **the default value is inch.**
 
 ```{r}
 convMeters(40)
@@ -247,7 +254,7 @@ convMeters(56.2, "yard")
 convMeters(to="yard", 56.2)
 ```
 
--   FACTORS:
+### FACTORS:
 
 To create a factor, use factor(). Factors are represented internally as numeric vectors.
 
@@ -301,7 +308,7 @@ t <- table(a, g)
 t
 ```
 
-Find marginal frequencies for a factor:
+Find **marginal frequencies** for a factor:
 
 ```{r}
 margin.table(t, 1)
@@ -311,7 +318,7 @@ margin.table(t, 1)
 margin.table(t, 2)  
 ```
 
-We can also find relative frequencies (proportions) with respect to each margin and the overall:
+We can also find **relative frequencies** (proportions) with respect to each margin and the overall:
 
 ```{r}
 t
@@ -335,16 +342,16 @@ prop.table(t) #overall
 prop.table(t) * 100 #RESULTS IN PERCENTAGE
 ```
 
--   VECTORS:
+### VECTORS:
 
-Create a vector:
+**Create a vector:**
 
 ```{r}
 v <- c(2, 5, 3, 4)
 length(v)
 ```
 
-Data type of elements in v:
+**Data type of elements in v:**
 
 ```{r}
 mode(v)
@@ -404,7 +411,7 @@ b[10] <- FALSE
 b
 ```
 
-Create an empty vector:
+**Create an empty vector:**
 
 ```{r}
 e <-vector()
@@ -420,20 +427,20 @@ mode(e)
 length(e)
 ```
 
-Use a vector elements to construct another vector:
+**Use a vector elements to construct another vector:**
 
 ```{r}
 b2 <-c(b[1], b[3], b[5])
 b2
 ```
 
-Find the square root of all elements in `v`:
+**Find the square root of all elements in `v`:**
 
 ```{r}
 sqrt(v)
 ```
 
-Addition:
+**Addition:**
 
 ```{r}
 v1 <- c(3, 6, 9)
@@ -441,25 +448,25 @@ v2 <- c(1, 4, 8)
 v1+v2  
 ```
 
-Dot product:
+**Dot product:**
 
 ```{r}
 v1*v2     
 ```
 
-Subtraction
+**Subtraction:**
 
 ```{r}
 v1-v2 
 ```
 
-Division
+**Division**
 
 ```{r}
 v1/v2 
 ```
 
-Recycling Rule:
+**Recycling Rule:**
 
 ```{r}
 v3 <- c(1, 4)
@@ -470,7 +477,7 @@ v1+v3#it makes v3 [1, 4, 1]
 2*v1
 ```
 
-Use vector to illustrate "for" loop:
+**Use vector to illustrate "for" loop:**
 
 ```{r}
 mysum <- function (x){
@@ -484,7 +491,7 @@ mysum <- function (x){
 (mysum (c(1, 2, 3)))
 ```
 
--   EASY WAYS TO GENERATE VECTORS:
+### EASY WAYS TO GENERATE VECTORS:
 
 ```{r}
 (x <-1:10)
@@ -502,7 +509,7 @@ mysum <- function (x){
 10:(15-1)
 ```
 
-Use seq() to generate sequence with real numbers:
+Use **seq()** to generate sequence with real numbers:
 
 ```{r}
 (seq(from=1, to=5, length=4)) 
@@ -512,7 +519,7 @@ Use seq() to generate sequence with real numbers:
 (seq(length=10, from=-2, by=0.5)) 
 ```
 
-Use rep(x,n) repeat x n times:
+Use **rep(x,n)** repeat x n times:
 
 ```{r}
 (rep(5, 10))
@@ -580,24 +587,11 @@ EXERCISE:
 \(2\) Compute the standard error of means of the dataset.
 
 ```{r}
-#First calculate the mean
-mean_sam <- mean(sam)
-
-#Next calculate the standard deviation
-sd_value <- sd(sam) 
-#Then calculate the sample size
-sample_size <- length(sam) 
-#Lastly compute the standart error
-se <- sd_value / sqrt(sample_size) 
-se
-```
-
-```{r}
 sample <- rnorm(100, mean=20, sd=4)
 se(sample)
 ```
 
-Use boolean operators:
+### Use boolean operators:
 
 ```{r}
 x <- c(0, -3, 4, -1, 45, 90, -5)
@@ -605,7 +599,7 @@ x <- c(0, -3, 4, -1, 45, 90, -5)
 (gtzero <- x[x>0])
 ```
 
-Use \| (or) and & (and) operators:
+### Use \| (or) and & (and) operators:
 
 ```{r}
 x <- c(0, -3, 4, -1, 45, 90, -5)
@@ -620,7 +614,7 @@ x <- c(0, -3, 4, -1, 45, 90, -5)
 (x[x>40 & x<100])
 ```
 
-Use a vector index:
+### Use a vector index:
 
 ```{r}
 x <- c(0, -3, 4, -1, 45, 90, -5)
@@ -639,7 +633,7 @@ x <- c(0, -3, 4, -1, 45, 90, -5)
 (x[1:3]) #select the 1st to the 3rd elements in the vector
 ```
 
-Use negative index to exclude elements:
+**Use negative index to exclude elements:**
 
 ```{r}
 x <- c(0, -3, 4, -1, 45, 90, -5)
@@ -654,7 +648,7 @@ x <- c(0, -3, 4, -1, 45, 90, -5)
 (x[-(1:3)])
 ```
 
-NAMED ELEMENTS:
+## NAMED ELEMENTS:
 
 Assign names to vector elements:
 
@@ -700,7 +694,7 @@ Error in eval(expr, envir, enclos): object 's1' not found
 
 ```
 
-Empty index means to select all:
+**Empty index means to select all:**
 
 ```{r}
 pH[]
@@ -722,9 +716,9 @@ pH<- 0
 pH
 ```
 
--   Matrices and arrays:
+## Matrices and arrays:
 
-To create a matrix:
+**To create a matrix:**
 
 ```{r}
 m <- c(45, 23, 66, 77, 33, 44, 56, 12, 78, 23)
@@ -836,7 +830,7 @@ is.matrix(m)
 is.vector(m)
 ```
 
-cbind() and rbind() join together two or more vectors or matrices, by column, or by row, respectively:
+**cbind()** and **rbind()** join together two or more vectors or matrices, by column, or by row, respectively:
 
 ```{r}
 cbind (c(1,2,3), c(4, 5, 6))
@@ -867,7 +861,7 @@ What will m1-m4 look like?
  #m1 <- matrix(rep(10, 9), 3, 3) m2 <- cbind (c(1,2,3), c(4, 5, 6)) m3 <- cbind (m1[,1], m2[2,]) m4 <- cbind (m1[,1], m2[,2]) #error
 ```
 
-NAMED ROWS AND COLUMNS:
+**NAMED ROWS AND COLUMNS:**
 
 ```{r}
 sales <- matrix(c(10, 30, 40, 50, 43, 56, 21, 30), 2, 4, byrow=TRUE)
@@ -888,7 +882,7 @@ sales['store1', '1qrt']
 sales['store2', c('1qrt', '4qrt')]
 ```
 
--   ARRAYS: 3D-ARRAYS
+## ARRAYS: 3D-ARRAYS
 
 ```{r}
 a <- array(1:48, dim= c(4, 3, 2))
@@ -917,7 +911,7 @@ a [4, 3, ]
  a [c(2, 3), , -2]
 ```
 
-Assign names to dimensions of an array.
+**Assign names to dimensions of an array.**
 
 ```{r}
 dimnames(a)[[1]] <-c("1qrt", "2qrt", "3qrt", "4qrt")
@@ -926,7 +920,7 @@ dimnames(a)[[3]] <-c("2017", "2018")
 a
 ```
 
-Alternatively, use list() to specify names:
+Alternatively, use **list()** to specify names:
 
 ```{r}
 ar <- array(data     = 1:27,
@@ -935,7 +929,7 @@ ar <- array(data     = 1:27,
 ar
 ```
 
-SPLIT ARRAY INTO MATRICES:
+**SPLIT ARRAY INTO MATRICES:**
 
 ```{r}
 matrix1 <- ar[,,g]
@@ -1018,7 +1012,7 @@ mylist[handle]
 mylist[["stud.id"]]
 ```
 
-INTERACT WITH \$
+## INTERACT WITH \$
 
 ```{r}
 mylist <- list(stud.id=34453,
@@ -1053,7 +1047,7 @@ mylist$parents.names <- c('Ana', "Mike")
 mylist
 ```
 
-Use c() to concatenate two lists:
+**Use c() to concatenate two lists:**
 
 ```{r}
 newlist <- list(age=19, sex="male");
@@ -1065,7 +1059,7 @@ expandedlist
 length(expandedlist)
 ```
 
-REMOVE LIST COMPONENTS USING NEGATIVE INDEX OR NULL:
+**REMOVE LIST COMPONENTS USING NEGATIVE INDEX OR NULL:**
 
 ```{r}
 expandedlist <- expandedlist[-5]
@@ -1074,7 +1068,7 @@ expandedlist$parents.names <- NULL
 expandedlist[['marks']] <- NULL
 ```
 
-unlist() coerces a list to a vector:
+**unlist() coerces a list to a vector:**
 
 ```{r}
 mylist
@@ -1100,9 +1094,9 @@ is.vector(unlist(mylist)) #atomic list with names
 is.list(mylist)
 ```
 
--   DATA FRAMES:
+### DATA FRAMES:
 
-Create a dataframe
+**Create a dataframe**
 
 ```{r}
 my.dataframe <- data.frame(site=c('A', 'B', 'A','A', 'B'),
@@ -1157,14 +1151,14 @@ my.dataframe[my.dataframe$season=='summer' & my.dataframe$ph>8, 'ph'] <- my.data
 my.dataframe[my.dataframe$season=='summer', 'ph']                             
 ```
 
-ADD A COLUMN:
+**ADD A COLUMN:**
 
 ```{r}
 my.dataframe$NO3 <- c(234.5, 123.4, 456.7, 567.8, 789.0)
 my.dataframe
 ```
 
-REMOVE A COLUMN:
+**REMOVE A COLUMN:**
 
 ```{r}
 #my.dataframe$NO3<-NULL
@@ -1172,7 +1166,7 @@ my.dataframe <- my.dataframe[, -4]
 my.dataframe
 ```
 
-Check the structure of a data frame:
+**Check the structure of a data frame:**
 
 ```{r}
 str(my.dataframe)
@@ -1190,7 +1184,7 @@ ncol(my.dataframe)
 dim(my.dataframe)
 ```
 
-Edit a data frame:
+**Edit a data frame:**
 
 ```{r}
  #edit(my.dataframe) #this brings up a data editor
@@ -1200,7 +1194,7 @@ Edit a data frame:
 #View(my.dataframe) #this brings up a uneditable tab that display the data for you to view.
 ```
 
-Update names of the columns:
+**Update names of the columns:**
 
 ```{r}
 names(my.dataframe)
@@ -1216,7 +1210,7 @@ names(my.dataframe)[3] <- 'ph'
 my.dataframe 
 ```
 
--   TIBBLES:
+### TIBBLES:
 
 Tibbles are similar to data frame, but they are more convenient than data frame.
 
@@ -1225,7 +1219,7 @@ install.packages("tibble")
                                                                   library(tibble)
 ```
 
-CREATE A TIBBLE:
+**CREATE A TIBBLE:**
 
 ```{r}
 my.tibble <- tibble(TempCels = sample(-10:40, size=100, replace=TRUE), 
@@ -1245,7 +1239,7 @@ class(penguins)
 penguins
 ```
 
-CONVERT A DATAFRAME INTO A TIBBLE
+**CONVERT A DATAFRAME INTO A TIBBLE**
 
 ```{r}
 pe <-as_tibble(penguins)
@@ -1329,7 +1323,7 @@ is.vector(x)
 typeof(x)
 ```
 
-Subsetting a tibble results in a smaller tibble
+**Subsetting a tibble results in a smaller tibble**
 
 ```{r}
 class(pe[1:15, c("bill_length_mm", "bill_depth_mm")])
@@ -1347,11 +1341,11 @@ class(pe[1:15, c("bill_length_mm")])
 class(penguins[1:15, c("bill_length_mm")])
 ```
 
--   DPLYR:
+### DPLYR:
 
-select() selects a subset of columns of the dataset.
+**select() selects a subset of columns of the dataset.**
 
-filter() select a subset of rows.
+**filter() select a subset of rows.**
 
 ```{r}
 install.packages("dplyr")
